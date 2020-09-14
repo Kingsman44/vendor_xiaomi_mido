@@ -1,4 +1,4 @@
-W/**
+/**
  * Copyright (C) 2019-2020 The LineageOS Project
  * Copyright (C) 2019-2020 The KomodoOS Project
  *
@@ -21,6 +21,25 @@ soong_namespace {
 }
 
 cc_prebuilt_library_shared {
+	name: "libgpustats",
+	owner: "xiaomi",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm: {
+			srcs: ["proprietary/vendor/lib/libgpustats.so"],
+		},
+		android_arm64: {
+			srcs: ["proprietary/vendor/lib64/libgpustats.so"],
+		},
+	},
+	compile_multilib: "both",
+	prefer: true,
+	soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
 	name: "libqmiservices",
 	owner: "xiaomi",
 	strip: {
@@ -40,7 +59,6 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-
 	name: "libsdm-disp-vndapis",
 	owner: "xiaomi",
 	strip: {
